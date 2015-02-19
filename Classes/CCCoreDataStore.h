@@ -172,10 +172,10 @@
  
     @return NSFetchedResultsController
  
-    @param theEntityName - the entity name string of the objects that will be fetched by the controller. Cannot be nil.
+    @param theClass - the class the objects that will be fetched by the controller. Cannot be nil.
     @param thePredicate - an NSPredicate to use use in the fetch, or nil.
     @param theSortDescriptors - an array of NSSortDescriptors to use in the fetch, or nil.
  */
-- (NSFetchedResultsController *)newFetchedResultsControllerWithEntityName:(NSString *)theEntityName predicate:(NSPredicate *)thePredicate sortDescriptors:(NSArray *)theSortDescriptors;
+- (NSFetchedResultsController *)newFetchedResultsControllerWithClass:(Class)theClass predicate:(NSPredicate *)thePredicate sortDescriptors:(NSArray *)theSortDescriptors;
 
 @end

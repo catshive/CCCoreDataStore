@@ -278,15 +278,15 @@
 
 #pragma mark - NSFetchedResultsController
 
-- (NSFetchedResultsController *)newFetchedResultsControllerWithEntityName:(NSString *)theEntityName predicate:(NSPredicate *)thePredicate sortDescriptors:(NSArray *)theSortDescriptors
+- (NSFetchedResultsController *)newFetchedResultsControllerWithClass:(Class)theClass predicate:(NSPredicate *)thePredicate sortDescriptors:(NSArray *)theSortDescriptors
 {
-    return [self newFetchedResultsControllerWithEntityName:theEntityName predicate:thePredicate sortDescriptors:theSortDescriptors context:self.defaultContext];
+    return [self newFetchedResultsControllerWithClass:theClass predicate:thePredicate sortDescriptors:theSortDescriptors context:self.defaultContext];
 }
 
-- (NSFetchedResultsController *)newFetchedResultsControllerWithEntityName:(NSString *)theEntityName predicate:(NSPredicate *)thePredicate sortDescriptors:(NSArray *)theSortDescriptors context:(NSManagedObjectContext *)theContext
+- (NSFetchedResultsController *)newFetchedResultsControllerWithClass:(Class)theClass predicate:(NSPredicate *)thePredicate sortDescriptors:(NSArray *)theSortDescriptors context:(NSManagedObjectContext *)theContext
 {
     NSAssert(theSortDescriptors, @"Sort desciptors are required to make a fetch request");
-    NSFetchRequest *aFetchRequest = [NSFetchRequest fetchRequestWithEntityName:theEntityName];
+    NSFetchRequest *aFetchRequest = [NSFetchRequest fetchRequestWithEntityName:[theClass entityName]];
     if (thePredicate) {
         aFetchRequest.predicate = thePredicate;
     }
